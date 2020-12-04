@@ -3,7 +3,7 @@ set -e
 
 if [ 1 -lt $# ]
 then
-	echo "Usage: $0 [<TDDIR>]" 1>&2
+	echo "Usage: $0 [<TDDIR>]" >&2
 	exit 1
 elif [ 1 -eq $# ]
 then
@@ -14,12 +14,13 @@ fi
 
 if [ ! -e "${TDDIR}" ]
 then
+	echo "Creation du répertoire ${TDDIR}"
 	mkdir -p "${TDDIR}"
 fi
 
 if [ ! -d "${TDDIR}" ]
 then
-	echo "${TDDIR} is not a directory!" 1>&2
+	echo "${TDDIR} n'est pas un répertoire!" >&2
 	exit 1
 fi
 
